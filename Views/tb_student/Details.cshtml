@@ -1,0 +1,57 @@
+﻿@model fyp1.Models.tb_student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.s_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.s_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_user.u_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_user.u_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.s_acadprogID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.s_acadprogID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.s_svID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.s_svID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.s_proposalD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.s_proposalD)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.s_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

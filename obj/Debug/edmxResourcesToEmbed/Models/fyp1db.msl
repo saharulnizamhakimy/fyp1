@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="fyp1dbModelStoreContainer" CdmEntityContainer="fyp1dbEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="fyp1dbModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_acadprog">
+      <EntityTypeMapping TypeName="fyp1dbModel.tb_acadprog">
+        <MappingFragment StoreEntitySet="tb_acadprog">
+          <ScalarProperty Name="ap_ID" ColumnName="ap_ID" />
+          <ScalarProperty Name="ap_desc" ColumnName="ap_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_committee">
+      <EntityTypeMapping TypeName="fyp1dbModel.tb_committee">
+        <MappingFragment StoreEntitySet="tb_committee">
+          <ScalarProperty Name="cmt_ID" ColumnName="cmt_ID" />
+          <ScalarProperty Name="cmt_acadprogID" ColumnName="cmt_acadprogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_domain">
+      <EntityTypeMapping TypeName="fyp1dbModel.tb_domain">
+        <MappingFragment StoreEntitySet="tb_domain">
+          <ScalarProperty Name="d_ID" ColumnName="d_ID" />
+          <ScalarProperty Name="d_desc" ColumnName="d_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_proposal">
+      <EntityTypeMapping TypeName="fyp1dbModel.tb_proposal">
+        <MappingFragment StoreEntitySet="tb_proposal">
+          <ScalarProperty Name="p_ID" ColumnName="p_ID" />
+          <ScalarProperty Name="p_studentID" ColumnName="p_studentID" />
+          <ScalarProperty Name="p_semester" ColumnName="p_semester" />
+          <ScalarProperty Name="p_acadsession" ColumnName="p_acadsession" />
+          <ScalarProperty Name="p_title" ColumnName="p_title" />
+          <ScalarProperty Name="p_domain" ColumnName="p_domain" />
+          <ScalarProperty Name="p_detail" ColumnName="p_detail" />
+          <ScalarProperty Name="p_status" ColumnName="p_status" />
+          <ScalarProperty Name="p_ev1ID" ColumnName="p_ev1ID" />
+          <ScalarProperty Name="p_ev2ID" ColumnName="p_ev2ID" />
+          <ScalarProperty Name="p_ev1comment" ColumnName="p_ev1comment" />
+          <ScalarProperty Name="p_ev2comment" ColumnName="p_ev2comment" />
+          <ScalarProperty Name="p_svcomment" ColumnName="p_svcomment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_status">
+      <EntityTypeMapping TypeName="fyp1dbModel.tb_status">
+        <MappingFragment StoreEntitySet="tb_status">
+          <ScalarProperty Name="st_ID" ColumnName="st_ID" />
+          <ScalarProperty Name="st_desc" ColumnName="st_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_student">
+      <EntityTypeMapping TypeName="fyp1dbModel.tb_student">
+        <MappingFragment StoreEntitySet="tb_student">
+          <ScalarProperty Name="s_id" ColumnName="s_id" />
+          <ScalarProperty Name="s_acadprogID" ColumnName="s_acadprogID" />
+          <ScalarProperty Name="s_svID" ColumnName="s_svID" />
+          <ScalarProperty Name="s_proposalD" ColumnName="s_proposalD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_sv">
+      <EntityTypeMapping TypeName="fyp1dbModel.tb_sv">
+        <MappingFragment StoreEntitySet="tb_sv">
+          <ScalarProperty Name="sv_ID" ColumnName="sv_ID" />
+          <ScalarProperty Name="sv_domainID" ColumnName="sv_domainID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_user">
+      <EntityTypeMapping TypeName="fyp1dbModel.tb_user">
+        <MappingFragment StoreEntitySet="tb_user">
+          <ScalarProperty Name="u_ID" ColumnName="u_ID" />
+          <ScalarProperty Name="u_pwd" ColumnName="u_pwd" />
+          <ScalarProperty Name="u_name" ColumnName="u_name" />
+          <ScalarProperty Name="u_contact" ColumnName="u_contact" />
+          <ScalarProperty Name="u_email" ColumnName="u_email" />
+          <ScalarProperty Name="u_type" ColumnName="u_type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_usertype">
+      <EntityTypeMapping TypeName="fyp1dbModel.tb_usertype">
+        <MappingFragment StoreEntitySet="tb_usertype">
+          <ScalarProperty Name="ut_ID" ColumnName="ut_ID" />
+          <ScalarProperty Name="ut_desc" ColumnName="ut_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

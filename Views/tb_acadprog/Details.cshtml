@@ -1,0 +1,32 @@
+﻿@model fyp1.Models.tb_acadprog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ap_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ap_desc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ap_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

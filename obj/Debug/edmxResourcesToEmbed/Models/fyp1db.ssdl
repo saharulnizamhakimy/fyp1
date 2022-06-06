@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="fyp1dbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tb_acadprog">
+    <Key>
+      <PropertyRef Name="ap_ID" />
+    </Key>
+    <Property Name="ap_ID" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="ap_desc" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="tb_committee">
+    <Key>
+      <PropertyRef Name="cmt_ID" />
+    </Key>
+    <Property Name="cmt_ID" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="cmt_acadprogID" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="tb_domain">
+    <Key>
+      <PropertyRef Name="d_ID" />
+    </Key>
+    <Property Name="d_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="d_desc" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="tb_proposal">
+    <Key>
+      <PropertyRef Name="p_ID" />
+    </Key>
+    <Property Name="p_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="p_studentID" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="p_semester" Type="int" />
+    <Property Name="p_acadsession" Type="varchar" MaxLength="9" />
+    <Property Name="p_title" Type="varchar" MaxLength="50" />
+    <Property Name="p_domain" Type="int" />
+    <Property Name="p_detail" Type="varchar(max)" />
+    <Property Name="p_status" Type="int" />
+    <Property Name="p_ev1ID" Type="varchar" MaxLength="9" />
+    <Property Name="p_ev2ID" Type="varchar" MaxLength="9" />
+    <Property Name="p_ev1comment" Type="varchar(max)" />
+    <Property Name="p_ev2comment" Type="varchar(max)" />
+    <Property Name="p_svcomment" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="tb_status">
+    <Key>
+      <PropertyRef Name="st_ID" />
+    </Key>
+    <Property Name="st_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="st_desc" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="tb_student">
+    <Key>
+      <PropertyRef Name="s_id" />
+    </Key>
+    <Property Name="s_id" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="s_acadprogID" Type="varchar" MaxLength="5" />
+    <Property Name="s_svID" Type="varchar" MaxLength="9" />
+    <Property Name="s_proposalD" Type="int" />
+  </EntityType>
+  <EntityType Name="tb_sv">
+    <Key>
+      <PropertyRef Name="sv_ID" />
+    </Key>
+    <Property Name="sv_ID" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="sv_domainID" Type="int" />
+  </EntityType>
+  <EntityType Name="tb_user">
+    <Key>
+      <PropertyRef Name="u_ID" />
+    </Key>
+    <Property Name="u_ID" Type="varchar" MaxLength="9" Nullable="false" />
+    <Property Name="u_pwd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="u_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="u_contact" Type="varchar" MaxLength="12" />
+    <Property Name="u_email" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="u_type" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_usertype">
+    <Key>
+      <PropertyRef Name="ut_ID" />
+    </Key>
+    <Property Name="ut_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ut_desc" Type="varchar" MaxLength="12" />
+  </EntityType>
+  <Association Name="FK_tb_committee_tb_acadprog">
+    <End Role="tb_acadprog" Type="Self.tb_acadprog" Multiplicity="0..1" />
+    <End Role="tb_committee" Type="Self.tb_committee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_acadprog">
+        <PropertyRef Name="ap_ID" />
+      </Principal>
+      <Dependent Role="tb_committee">
+        <PropertyRef Name="cmt_acadprogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_committee_tb_user">
+    <End Role="tb_user" Type="Self.tb_user" Multiplicity="1" />
+    <End Role="tb_committee" Type="Self.tb_committee" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tb_user">
+        <PropertyRef Name="u_ID" />
+      </Principal>
+      <Dependent Role="tb_committee">
+        <PropertyRef Name="cmt_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_proposal_tb_domain">
+    <End Role="tb_domain" Type="Self.tb_domain" Multiplicity="0..1" />
+    <End Role="tb_proposal" Type="Self.tb_proposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_domain">
+        <PropertyRef Name="d_ID" />
+      </Principal>
+      <Dependent Role="tb_proposal">
+        <PropertyRef Name="p_domain" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_proposal_tb_status">
+    <End Role="tb_status" Type="Self.tb_status" Multiplicity="0..1" />
+    <End Role="tb_proposal" Type="Self.tb_proposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_status">
+        <PropertyRef Name="st_ID" />
+      </Principal>
+      <Dependent Role="tb_proposal">
+        <PropertyRef Name="p_status" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_proposal_tb_user">
+    <End Role="tb_user" Type="Self.tb_user" Multiplicity="0..1" />
+    <End Role="tb_proposal" Type="Self.tb_proposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_user">
+        <PropertyRef Name="u_ID" />
+      </Principal>
+      <Dependent Role="tb_proposal">
+        <PropertyRef Name="p_ev1ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_proposal_tb_user1">
+    <End Role="tb_user" Type="Self.tb_user" Multiplicity="0..1" />
+    <End Role="tb_proposal" Type="Self.tb_proposal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_user">
+        <PropertyRef Name="u_ID" />
+      </Principal>
+      <Dependent Role="tb_proposal">
+        <PropertyRef Name="p_ev2ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_student_tb_acadprog">
+    <End Role="tb_acadprog" Type="Self.tb_acadprog" Multiplicity="0..1" />
+    <End Role="tb_student" Type="Self.tb_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_acadprog">
+        <PropertyRef Name="ap_ID" />
+      </Principal>
+      <Dependent Role="tb_student">
+        <PropertyRef Name="s_acadprogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_student_tb_proposal">
+    <End Role="tb_proposal" Type="Self.tb_proposal" Multiplicity="0..1" />
+    <End Role="tb_student" Type="Self.tb_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_proposal">
+        <PropertyRef Name="p_ID" />
+      </Principal>
+      <Dependent Role="tb_student">
+        <PropertyRef Name="s_proposalD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_student_tb_sv">
+    <End Role="tb_sv" Type="Self.tb_sv" Multiplicity="0..1" />
+    <End Role="tb_student" Type="Self.tb_student" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_sv">
+        <PropertyRef Name="sv_ID" />
+      </Principal>
+      <Dependent Role="tb_student">
+        <PropertyRef Name="s_svID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_student_tb_user">
+    <End Role="tb_user" Type="Self.tb_user" Multiplicity="1" />
+    <End Role="tb_student" Type="Self.tb_student" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tb_user">
+        <PropertyRef Name="u_ID" />
+      </Principal>
+      <Dependent Role="tb_student">
+        <PropertyRef Name="s_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_sv_tb_domain">
+    <End Role="tb_domain" Type="Self.tb_domain" Multiplicity="0..1" />
+    <End Role="tb_sv" Type="Self.tb_sv" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_domain">
+        <PropertyRef Name="d_ID" />
+      </Principal>
+      <Dependent Role="tb_sv">
+        <PropertyRef Name="sv_domainID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_sv_tb_user">
+    <End Role="tb_user" Type="Self.tb_user" Multiplicity="1" />
+    <End Role="tb_sv" Type="Self.tb_sv" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="tb_user">
+        <PropertyRef Name="u_ID" />
+      </Principal>
+      <Dependent Role="tb_sv">
+        <PropertyRef Name="sv_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_user_tb_usertype">
+    <End Role="tb_usertype" Type="Self.tb_usertype" Multiplicity="1" />
+    <End Role="tb_user" Type="Self.tb_user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_usertype">
+        <PropertyRef Name="ut_ID" />
+      </Principal>
+      <Dependent Role="tb_user">
+        <PropertyRef Name="u_type" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="fyp1dbModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_acadprog" EntityType="Self.tb_acadprog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_committee" EntityType="Self.tb_committee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_domain" EntityType="Self.tb_domain" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_proposal" EntityType="Self.tb_proposal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_status" EntityType="Self.tb_status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_student" EntityType="Self.tb_student" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_sv" EntityType="Self.tb_sv" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_user" EntityType="Self.tb_user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_usertype" EntityType="Self.tb_usertype" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tb_committee_tb_acadprog" Association="Self.FK_tb_committee_tb_acadprog">
+      <End Role="tb_acadprog" EntitySet="tb_acadprog" />
+      <End Role="tb_committee" EntitySet="tb_committee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_committee_tb_user" Association="Self.FK_tb_committee_tb_user">
+      <End Role="tb_user" EntitySet="tb_user" />
+      <End Role="tb_committee" EntitySet="tb_committee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_proposal_tb_domain" Association="Self.FK_tb_proposal_tb_domain">
+      <End Role="tb_domain" EntitySet="tb_domain" />
+      <End Role="tb_proposal" EntitySet="tb_proposal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_proposal_tb_status" Association="Self.FK_tb_proposal_tb_status">
+      <End Role="tb_status" EntitySet="tb_status" />
+      <End Role="tb_proposal" EntitySet="tb_proposal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_proposal_tb_user" Association="Self.FK_tb_proposal_tb_user">
+      <End Role="tb_user" EntitySet="tb_user" />
+      <End Role="tb_proposal" EntitySet="tb_proposal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_proposal_tb_user1" Association="Self.FK_tb_proposal_tb_user1">
+      <End Role="tb_user" EntitySet="tb_user" />
+      <End Role="tb_proposal" EntitySet="tb_proposal" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_student_tb_acadprog" Association="Self.FK_tb_student_tb_acadprog">
+      <End Role="tb_acadprog" EntitySet="tb_acadprog" />
+      <End Role="tb_student" EntitySet="tb_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_student_tb_proposal" Association="Self.FK_tb_student_tb_proposal">
+      <End Role="tb_proposal" EntitySet="tb_proposal" />
+      <End Role="tb_student" EntitySet="tb_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_student_tb_sv" Association="Self.FK_tb_student_tb_sv">
+      <End Role="tb_sv" EntitySet="tb_sv" />
+      <End Role="tb_student" EntitySet="tb_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_student_tb_user" Association="Self.FK_tb_student_tb_user">
+      <End Role="tb_user" EntitySet="tb_user" />
+      <End Role="tb_student" EntitySet="tb_student" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_sv_tb_domain" Association="Self.FK_tb_sv_tb_domain">
+      <End Role="tb_domain" EntitySet="tb_domain" />
+      <End Role="tb_sv" EntitySet="tb_sv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_sv_tb_user" Association="Self.FK_tb_sv_tb_user">
+      <End Role="tb_user" EntitySet="tb_user" />
+      <End Role="tb_sv" EntitySet="tb_sv" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_user_tb_usertype" Association="Self.FK_tb_user_tb_usertype">
+      <End Role="tb_usertype" EntitySet="tb_usertype" />
+      <End Role="tb_user" EntitySet="tb_user" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

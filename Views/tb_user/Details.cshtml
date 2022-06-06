@@ -1,0 +1,57 @@
+﻿@model fyp1.Models.tb_user
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.u_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.u_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.u_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.u_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.u_contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.u_contact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.u_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.u_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_usertype.ut_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_usertype.ut_desc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.u_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

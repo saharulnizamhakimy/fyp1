@@ -1,0 +1,99 @@
+﻿@model IEnumerable<fyp1.Models.tb_proposal>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.p_studentID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_semester)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_acadsession)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_detail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_ev1comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_ev2comment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_svcomment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tb_domain.d_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tb_status.st_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tb_user.u_pwd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tb_user1.u_pwd)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_studentID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_semester)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_acadsession)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_detail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_ev1comment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_ev2comment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_svcomment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_domain.d_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_status.st_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_user.u_pwd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tb_user1.u_pwd)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.p_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.p_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.p_ID })
+        </td>
+    </tr>
+}
+
+</table>

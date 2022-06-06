@@ -1,0 +1,54 @@
+﻿@model fyp1.Models.tb_sv
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.sv_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sv_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_user.u_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_user.u_name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_user.u_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_user.u_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_domain.d_desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_domain.d_desc)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure?')"/> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
