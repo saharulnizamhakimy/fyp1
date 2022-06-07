@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<fyp1.Models.tb_acadprog>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Academic Program List";
 }
 
-<h2>Index</h2>
+<h2>Academic Program List</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("New Academic Program", "Create", null, new { @class = "btn btn-success" })
 </p>
-<table class="table">
+<table class="table table-responsive-xl table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ap_ID)
@@ -20,7 +20,8 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model) 
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.ap_ID)
@@ -29,8 +30,8 @@
             @Html.DisplayFor(modelItem => item.ap_desc)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ap_ID }, new { @class = "btn btn-warning" }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ap_ID }, new { @class = "btn btn-info" }) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.ap_ID }, new { @class = "btn btn-warning" }) 
+            @Html.ActionLink("Details", "Details", new { id=item.ap_ID }, new { @class = "btn btn-info" }) 
             @Html.ActionLink("Delete", "Delete", new { id=item.ap_ID }, new { @class = "btn btn-danger" })
         </td>
     </tr>

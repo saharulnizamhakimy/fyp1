@@ -24,12 +24,12 @@ namespace fyp1.Models
             [DisplayName("Name")]
             public string u_name { get; set; }
 
-            [Required]
             [DisplayName("Contact Number")]
             public string u_contact { get; set; }
 
             [Required]
             [DisplayName("Email")]
+            [DataType(DataType.EmailAddress)]
             public string u_email { get; set; }
 
             [Required]

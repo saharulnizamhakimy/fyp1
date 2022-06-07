@@ -12,9 +12,11 @@ namespace fyp1.Models
     {
         public class tb_acadprogMetadata
         {
+            [Required]
             [DisplayName("Academic Program ID")]
             public string ap_ID { get; set; }
 
+            [Required]
             [DisplayName("Academic Program")]
             public string ap_desc { get; set; }
         }

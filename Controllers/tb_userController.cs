@@ -57,6 +57,18 @@ namespace fyp1.Controllers
             {
                 db.tb_user.Add(tb_user);
                 db.SaveChanges();
+                if (tb_user.u_type==2)
+                {
+                    return RedirectToAction("Index");
+                }
+                else if(tb_user.u_type==3)
+                {
+                    return RedirectToAction("Index");
+                }
+                else if(tb_user.u_type==5)
+                {
+                    return RedirectToAction("Index");
+                }
                 return RedirectToAction("Index");
             }
 

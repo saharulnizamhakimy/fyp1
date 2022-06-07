@@ -1,10 +1,10 @@
 ﻿@model fyp1.Models.tb_acadprog
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Academic Program Details";
 }
 
-<h2>Details</h2>
+<h2>Academic Program Details</h2>
 
 <div>
     <hr />
@@ -14,14 +14,14 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ap_ID)
+            @Html.EditorFor(model => model.ap_ID, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.ap_desc)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ap_desc)
+            @Html.EditorFor(model => model.ap_desc, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
         </dd>
 
     </dl>

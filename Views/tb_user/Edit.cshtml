@@ -1,10 +1,10 @@
 ﻿@model fyp1.Models.tb_user
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit User Details";
 }
 
-<h2>Edit</h2>
+<h2>Edit User Details</h2>
 
 
 @using (Html.BeginForm())
@@ -20,7 +20,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.u_name, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.u_name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.u_name, new { htmlAttributes = new { @class = "form-control", maxlength="50" } })
                 @Html.ValidationMessageFor(model => model.u_name, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -28,7 +28,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.u_contact, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.u_contact, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.u_contact, new { htmlAttributes = new { @class = "form-control", maxlength = "12" } })
                 @Html.ValidationMessageFor(model => model.u_contact, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -36,7 +36,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.u_email, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.u_email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.u_email, new { htmlAttributes = new { @class = "form-control", maxlength = "60" } })
                 @Html.ValidationMessageFor(model => model.u_email, "", new { @class = "text-danger" })
             </div>
         </div>

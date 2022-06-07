@@ -1,10 +1,10 @@
 ﻿@model fyp1.Models.tb_user
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "User Details";
 }
 
-<h2>Details</h2>
+<h2>User Details</h2>
 
 <div>
     <hr />
@@ -14,7 +14,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.u_ID)
+            @Html.EditorFor(model => model.u_ID, new { htmlAttributes = new { @class = "form-control", @readonly="true" } })
         </dd>
 
         <dt>
@@ -22,7 +22,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.u_name)
+            @Html.EditorFor(model => model.u_name, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
         </dd>
 
         <dt>
@@ -30,7 +30,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.u_contact)
+            @Html.EditorFor(model => model.u_contact, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+
         </dd>
 
         <dt>
@@ -38,7 +39,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.u_email)
+            @Html.EditorFor(model => model.u_email, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+
         </dd>
 
         <dt>
@@ -46,7 +48,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.tb_usertype.ut_desc)
+            @Html.EditorFor(model => model.tb_usertype.ut_desc, new { htmlAttributes = new { @class = "form-control", @readonly = "true" } })
+
         </dd>
 
     </dl>
