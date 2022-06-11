@@ -39,13 +39,22 @@
     <EntitySetMapping Name="tb_proposal">
       <EntityTypeMapping TypeName="fyp1dbModel.tb_proposal">
         <MappingFragment StoreEntitySet="tb_proposal">
+          <ScalarProperty Name="p_idea" ColumnName="p_idea" />
+          <ScalarProperty Name="p_area" ColumnName="p_area" />
+          <ScalarProperty Name="p_secreq" ColumnName="p_secreq" />
+          <ScalarProperty Name="p_netreq" ColumnName="p_netreq" />
+          <ScalarProperty Name="p_techreq" ColumnName="p_techreq" />
+          <ScalarProperty Name="p_hardreq" ColumnName="p_hardreq" />
+          <ScalarProperty Name="p_softreq" ColumnName="p_softreq" />
+          <ScalarProperty Name="p_scope" ColumnName="p_scope" />
+          <ScalarProperty Name="p_obj" ColumnName="p_obj" />
+          <ScalarProperty Name="p_bgNsol" ColumnName="p_bgNsol" />
           <ScalarProperty Name="p_ID" ColumnName="p_ID" />
           <ScalarProperty Name="p_studentID" ColumnName="p_studentID" />
           <ScalarProperty Name="p_semester" ColumnName="p_semester" />
           <ScalarProperty Name="p_acadsession" ColumnName="p_acadsession" />
           <ScalarProperty Name="p_title" ColumnName="p_title" />
           <ScalarProperty Name="p_domain" ColumnName="p_domain" />
-          <ScalarProperty Name="p_detail" ColumnName="p_detail" />
           <ScalarProperty Name="p_status" ColumnName="p_status" />
           <ScalarProperty Name="p_ev1ID" ColumnName="p_ev1ID" />
           <ScalarProperty Name="p_ev2ID" ColumnName="p_ev2ID" />

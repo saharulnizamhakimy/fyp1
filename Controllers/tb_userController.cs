@@ -152,5 +152,36 @@ namespace fyp1.Controllers
             }
             base.Dispose(disposing);
         }
+
+        //create student record on user table then redirect to edit student from student table
+        public ActionResult CreateStudent()
+        {
+            //ViewBag.u_ID = new SelectList(db.tb_committee, "cmt_ID", "cmt_acadprogID");
+            //ViewBag.u_ID = new SelectList(db.tb_student, "s_id", "s_acadprogID");
+            //ViewBag.u_ID = new SelectList(db.tb_sv, "sv_ID", "sv_ID");
+            return View();
+        }
+
+        // POST: tb_user/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateStudent([Bind(Include = "u_ID,u_pwd,u_name,u_contact,u_email,u_type")] tb_user tb_user)
+        {
+            if (ModelState.IsValid)
+            {
+                tb_user.u_type = 2;
+                db.tb_user.Add(tb_user);
+                db.SaveChanges();
+                
+                return RedirectToAction("Index", "Login");
+            }
+
+            //ViewBag.u_ID = new SelectList(db.tb_committee, "cmt_ID", "cmt_acadprogID", tb_user.u_ID);
+            //ViewBag.u_ID = new SelectList(db.tb_student, "s_id", "s_acadprogID", tb_user.u_ID);
+            //ViewBag.u_ID = new SelectList(db.tb_sv, "sv_ID", "sv_ID", tb_user.u_ID);
+            return View(tb_user);
+        }
     }
 }

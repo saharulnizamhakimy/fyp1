@@ -30,7 +30,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure?')"/> |
+            <input type="submit" value="Delete" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete the record?')"/> |
             @Html.ActionLink("Back to List", "Index")
         </div>
     }

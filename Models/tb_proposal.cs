@@ -26,18 +26,26 @@ namespace fyp1.Models
         public string p_acadsession { get; set; }
         public string p_title { get; set; }
         public Nullable<int> p_domain { get; set; }
-        public string p_detail { get; set; }
         public Nullable<int> p_status { get; set; }
         public string p_ev1ID { get; set; }
         public string p_ev2ID { get; set; }
         public string p_ev1comment { get; set; }
         public string p_ev2comment { get; set; }
         public string p_svcomment { get; set; }
+        public string p_bgNsol { get; set; }
+        public string p_obj { get; set; }
+        public string p_scope { get; set; }
+        public string p_softreq { get; set; }
+        public string p_hardreq { get; set; }
+        public string p_techreq { get; set; }
+        public string p_netreq { get; set; }
+        public string p_secreq { get; set; }
+        public string p_area { get; set; }
+        public string p_idea { get; set; }
     
         public virtual tb_domain tb_domain { get; set; }
         public virtual tb_status tb_status { get; set; }
         public virtual tb_user tb_user { get; set; }
-        public virtual tb_user tb_user1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_student> tb_student { get; set; }
     }

@@ -17,7 +17,7 @@ namespace fyp1.Controllers
         // GET: tb_proposal
         public ActionResult Index()
         {
-            var tb_proposal = db.tb_proposal.Include(t => t.tb_domain).Include(t => t.tb_status).Include(t => t.tb_user).Include(t => t.tb_user1);
+            var tb_proposal = db.tb_proposal.Include(t => t.tb_domain).Include(t => t.tb_status).Include(t => t.tb_user);
             return View(tb_proposal.ToList());
         }
 

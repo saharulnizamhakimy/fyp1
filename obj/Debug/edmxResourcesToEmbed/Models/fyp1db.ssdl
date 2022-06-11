@@ -41,13 +41,22 @@
     <Property Name="p_acadsession" Type="varchar" MaxLength="9" />
     <Property Name="p_title" Type="varchar" MaxLength="50" />
     <Property Name="p_domain" Type="int" />
-    <Property Name="p_detail" Type="varchar(max)" />
+    <Property Name="p_bgNsol" Type="varchar(max)" />
     <Property Name="p_status" Type="int" />
     <Property Name="p_ev1ID" Type="varchar" MaxLength="9" />
     <Property Name="p_ev2ID" Type="varchar" MaxLength="9" />
     <Property Name="p_ev1comment" Type="varchar(max)" />
     <Property Name="p_ev2comment" Type="varchar(max)" />
     <Property Name="p_svcomment" Type="varchar(max)" />
+    <Property Name="p_obj" Type="varchar(max)" />
+    <Property Name="p_scope" Type="varchar(max)" />
+    <Property Name="p_softreq" Type="varchar(max)" />
+    <Property Name="p_hardreq" Type="varchar(max)" />
+    <Property Name="p_techreq" Type="varchar(max)" />
+    <Property Name="p_netreq" Type="varchar(max)" />
+    <Property Name="p_secreq" Type="varchar(max)" />
+    <Property Name="p_area" Type="varchar(max)" />
+    <Property Name="p_idea" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="tb_status">
     <Key>

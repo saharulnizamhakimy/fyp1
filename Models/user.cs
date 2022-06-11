@@ -32,7 +32,6 @@ namespace fyp1.Models
             [DataType(DataType.EmailAddress)]
             public string u_email { get; set; }
 
-            [Required]
             [DisplayName("User Type")]
             public int u_type { get; set; }
         }

@@ -47,7 +47,6 @@
     <Property Name="p_acadsession" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
     <Property Name="p_title" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="p_domain" Type="Int32" />
-    <Property Name="p_detail" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="p_status" Type="Int32" />
     <Property Name="p_ev1ID" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
     <Property Name="p_ev2ID" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
@@ -57,8 +56,17 @@
     <NavigationProperty Name="tb_domain" Relationship="Self.FK_tb_proposal_tb_domain" FromRole="tb_proposal" ToRole="tb_domain" />
     <NavigationProperty Name="tb_status" Relationship="Self.FK_tb_proposal_tb_status" FromRole="tb_proposal" ToRole="tb_status" />
     <NavigationProperty Name="tb_user" Relationship="Self.FK_tb_proposal_tb_user" FromRole="tb_proposal" ToRole="tb_user" />
-    <NavigationProperty Name="tb_user1" Relationship="Self.FK_tb_proposal_tb_user1" FromRole="tb_proposal" ToRole="tb_user" />
     <NavigationProperty Name="tb_student" Relationship="Self.FK_tb_student_tb_proposal" FromRole="tb_proposal" ToRole="tb_student" />
+    <Property Name="p_bgNsol" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p_obj" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p_scope" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p_softreq" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p_hardreq" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p_techreq" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p_netreq" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p_secreq" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p_area" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="p_idea" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityType Name="tb_status">
     <Key>
