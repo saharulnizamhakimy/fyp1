@@ -9,7 +9,8 @@
 <p>
     @Html.ActionLink("Create New Student", "Create")
 </p>
-<table class="table">
+<table class="table" id="prettify">
+    <thead>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.s_id)
@@ -28,7 +29,8 @@
         </th>
         <th></th>
     </tr>
-
+        </thead>
+    <tbody>
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -54,5 +56,5 @@
         </td>
     </tr>
 }
-
+        </tbody>
 </table>

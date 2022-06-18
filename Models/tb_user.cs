@@ -18,7 +18,6 @@ namespace fyp1.Models
         public tb_user()
         {
             this.tb_proposal = new HashSet<tb_proposal>();
-            this.tb_proposal1 = new HashSet<tb_proposal>();
         }
     
         public string u_ID { get; set; }
@@ -31,8 +30,6 @@ namespace fyp1.Models
         public virtual tb_committee tb_committee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_proposal> tb_proposal { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tb_proposal> tb_proposal1 { get; set; }
         public virtual tb_student tb_student { get; set; }
         public virtual tb_sv tb_sv { get; set; }
         public virtual tb_usertype tb_usertype { get; set; }

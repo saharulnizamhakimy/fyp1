@@ -1,29 +1,29 @@
 ﻿@model fyp1.Models.tb_user
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Profile Details";
 }
 
-<h2>Details</h2>
+<h2>Profile Details</h2>
 
 <div>
-    <h4>tb_user</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.u_pwd)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.u_pwd)
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.u_name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.u_name)
+            @Html.EditorFor(model => model.u_name, new { htmlAttributes = new { @class = "form-control", @readonly = "True" } })
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.u_pwd)
+        </dt>
+
+        <dd>
+            @Html.TextBoxFor(model => model.u_pwd, new { @class = "form-control", type = "password", @readonly = "true" })
         </dd>
 
         <dt>
@@ -31,7 +31,8 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.u_contact)
+            @Html.EditorFor(model => model.u_contact, new { htmlAttributes = new { @class = "form-control", @readonly = "True" } })
+
         </dd>
 
         <dt>
@@ -39,15 +40,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.u_email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.tb_committee.cmt_acadprogID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tb_committee.cmt_acadprogID)
+            @Html.EditorFor(model => model.u_email, new { htmlAttributes = new { @class = "form-control", @readonly = "True" } })
         </dd>
 
         <dt>
@@ -55,28 +48,15 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.tb_student.s_acadprogID)
+            @Html.EditorFor(model => model.tb_student.s_acadprogID, new { htmlAttributes = new { @class = "form-control", @readonly = "True" } })
+            @*@Html.DisplayFor(model => model.tb_student.s_acadprogID)*@
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.tb_sv.sv_ID)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.tb_sv.sv_ID)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.tb_usertype.ut_desc)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.tb_usertype.ut_desc)
-        </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.u_ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.u_ID })
+    @*@Html.ActionLink("Back to List", "Index")*@
 </p>

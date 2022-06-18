@@ -1953,11 +1953,6 @@
     <Content Include="Views\tb_sv\Details.cshtml" />
     <Content Include="Views\tb_sv\Edit.cshtml" />
     <Content Include="Views\tb_sv\Index.cshtml" />
-    <Content Include="Views\tb_proposal\Create.cshtml" />
-    <Content Include="Views\tb_proposal\Delete.cshtml" />
-    <Content Include="Views\tb_proposal\Details.cshtml" />
-    <Content Include="Views\tb_proposal\Edit.cshtml" />
-    <Content Include="Views\tb_proposal\Index.cshtml" />
     <Content Include="Views\tb_acadprog\Create.cshtml" />
     <Content Include="Views\tb_acadprog\Delete.cshtml" />
     <Content Include="Views\tb_acadprog\Details.cshtml" />
@@ -2144,6 +2139,12 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\Login\_ViewStart.cshtml" />
+    <Content Include="Views\tb_proposal\Create.cshtml" />
+    <Content Include="Views\tb_proposal\Delete.cshtml" />
+    <Content Include="Views\tb_proposal\Details.cshtml" />
+    <Content Include="Views\tb_proposal\Edit.cshtml" />
+    <Content Include="Views\tb_proposal\Index.cshtml" />
+    <Content Include="Views\tb_student\selectSV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

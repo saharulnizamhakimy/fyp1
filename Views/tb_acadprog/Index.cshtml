@@ -9,7 +9,8 @@
 <p>
     @Html.ActionLink("New Academic Program", "Create", null, new { @class = "btn btn-success" })
 </p>
-<table class="table table-responsive-xl table-hover">
+<table class="table table-responsive-xl table-hover" id="prettify">
+    <thead>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.ap_ID)
@@ -19,6 +20,8 @@
         </th>
         <th></th>
     </tr>
+        </thead>
+    <tbody>
 
 @foreach (var item in Model) 
 {
@@ -36,5 +39,6 @@
         </td>
     </tr>
 }
+        </tbody>
 
 </table>

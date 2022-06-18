@@ -439,7 +439,6 @@
           <Property Name="u_type" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tb_committee" Relationship="Self.FK_tb_committee_tb_user" FromRole="tb_user" ToRole="tb_committee" />
           <NavigationProperty Name="tb_proposal" Relationship="Self.FK_tb_proposal_tb_user" FromRole="tb_user" ToRole="tb_proposal" />
-          <NavigationProperty Name="tb_proposal1" Relationship="Self.FK_tb_proposal_tb_user1" FromRole="tb_user" ToRole="tb_proposal" />
           <NavigationProperty Name="tb_student" Relationship="Self.FK_tb_student_tb_user" FromRole="tb_user" ToRole="tb_student" />
           <NavigationProperty Name="tb_sv" Relationship="Self.FK_tb_sv_tb_user" FromRole="tb_user" ToRole="tb_sv" />
           <NavigationProperty Name="tb_usertype" Relationship="Self.FK_tb_user_tb_usertype" FromRole="tb_user" ToRole="tb_usertype" />

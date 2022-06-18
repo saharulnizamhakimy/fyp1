@@ -41,8 +41,7 @@ namespace fyp1.Controllers
         {
             ViewBag.p_domain = new SelectList(db.tb_domain, "d_ID", "d_desc");
             ViewBag.p_status = new SelectList(db.tb_status, "st_ID", "st_desc");
-            ViewBag.p_ev1ID = new SelectList(db.tb_user, "u_ID", "u_pwd");
-            ViewBag.p_ev2ID = new SelectList(db.tb_user, "u_ID", "u_pwd");
+            ViewBag.p_ev1ID = new SelectList(db.tb_user, "u_ID", "u_ID");
             return View();
         }
 
@@ -51,10 +50,12 @@ namespace fyp1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "p_ID,p_studentID,p_semester,p_acadsession,p_title,p_domain,p_detail,p_status,p_ev1ID,p_ev2ID,p_ev1comment,p_ev2comment,p_svcomment")] tb_proposal tb_proposal)
+        public ActionResult Create([Bind(Include = "p_ID,p_studentID,p_semester,p_acadsession,p_title,p_domain,p_status,p_ev1ID,p_ev2ID,p_ev1comment,p_ev2comment,p_svcomment,p_bgNsol,p_obj,p_scope,p_softreq,p_hardreq,p_techreq,p_netreq,p_secreq,p_area,p_idea")] tb_proposal tb_proposal)
         {
             if (ModelState.IsValid)
             {
+                tb_proposal.p_studentID = Session["UserID"].ToString();
+                tb_proposal.p_status = 1;
                 db.tb_proposal.Add(tb_proposal);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -62,8 +63,7 @@ namespace fyp1.Controllers
 
             ViewBag.p_domain = new SelectList(db.tb_domain, "d_ID", "d_desc", tb_proposal.p_domain);
             ViewBag.p_status = new SelectList(db.tb_status, "st_ID", "st_desc", tb_proposal.p_status);
-            ViewBag.p_ev1ID = new SelectList(db.tb_user, "u_ID", "u_pwd", tb_proposal.p_ev1ID);
-            ViewBag.p_ev2ID = new SelectList(db.tb_user, "u_ID", "u_pwd", tb_proposal.p_ev2ID);
+            ViewBag.p_ev1ID = new SelectList(db.tb_user, "u_ID", "u_ID", tb_proposal.p_ev1ID);
             return View(tb_proposal);
         }
 
@@ -81,8 +81,7 @@ namespace fyp1.Controllers
             }
             ViewBag.p_domain = new SelectList(db.tb_domain, "d_ID", "d_desc", tb_proposal.p_domain);
             ViewBag.p_status = new SelectList(db.tb_status, "st_ID", "st_desc", tb_proposal.p_status);
-            ViewBag.p_ev1ID = new SelectList(db.tb_user, "u_ID", "u_pwd", tb_proposal.p_ev1ID);
-            ViewBag.p_ev2ID = new SelectList(db.tb_user, "u_ID", "u_pwd", tb_proposal.p_ev2ID);
+            ViewBag.p_ev1ID = new SelectList(db.tb_user, "u_ID", "u_ID", tb_proposal.p_ev1ID);
             return View(tb_proposal);
         }
 
@@ -91,7 +90,7 @@ namespace fyp1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "p_ID,p_studentID,p_semester,p_acadsession,p_title,p_domain,p_detail,p_status,p_ev1ID,p_ev2ID,p_ev1comment,p_ev2comment,p_svcomment")] tb_proposal tb_proposal)
+        public ActionResult Edit([Bind(Include = "p_ID,p_studentID,p_semester,p_acadsession,p_title,p_domain,p_status,p_ev1ID,p_ev2ID,p_ev1comment,p_ev2comment,p_svcomment,p_bgNsol,p_obj,p_scope,p_softreq,p_hardreq,p_techreq,p_netreq,p_secreq,p_area,p_idea")] tb_proposal tb_proposal)
         {
             if (ModelState.IsValid)
             {
@@ -101,8 +100,7 @@ namespace fyp1.Controllers
             }
             ViewBag.p_domain = new SelectList(db.tb_domain, "d_ID", "d_desc", tb_proposal.p_domain);
             ViewBag.p_status = new SelectList(db.tb_status, "st_ID", "st_desc", tb_proposal.p_status);
-            ViewBag.p_ev1ID = new SelectList(db.tb_user, "u_ID", "u_pwd", tb_proposal.p_ev1ID);
-            ViewBag.p_ev2ID = new SelectList(db.tb_user, "u_ID", "u_pwd", tb_proposal.p_ev2ID);
+            ViewBag.p_ev1ID = new SelectList(db.tb_user, "u_ID", "u_ID", tb_proposal.p_ev1ID);
             return View(tb_proposal);
         }
 

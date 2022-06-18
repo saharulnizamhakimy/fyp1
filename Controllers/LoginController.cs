@@ -34,6 +34,7 @@ namespace fyp1.Controllers
                     FormsAuthentication.SetAuthCookie(usermodel.u_ID, false);
                     Session["UserID"] = obj.u_ID.ToString();
                     Session["Username"] = obj.u_name.ToString();
+                    Session["UserType"] = obj.u_type.ToString();
                     if (ReturnUrl != null)
                     {
                         return Redirect(ReturnUrl);
@@ -59,6 +60,7 @@ namespace fyp1.Controllers
             FormsAuthentication.SignOut();
             Session["UserID"] = null;
             Session["Username"] = null;
+            Session["UserType"] = null;
             return RedirectToAction("Index", "Login");
 
         }
