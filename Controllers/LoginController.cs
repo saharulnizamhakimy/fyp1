@@ -57,10 +57,14 @@ namespace fyp1.Controllers
         [Authorize]
         public ActionResult Logout()
         {
+            Session.Contents.RemoveAll();
+            Session.Abandon();
+            Session.Clear();
             FormsAuthentication.SignOut();
             Session["UserID"] = null;
             Session["Username"] = null;
             Session["UserType"] = null;
+            Session.Contents.RemoveAll();
             return RedirectToAction("Index", "Login");
 
         }
