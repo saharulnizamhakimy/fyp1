@@ -10,9 +10,54 @@
 {
     @Html.AntiForgeryToken()
     
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    @if (Session["UserType"].ToString() == "5")
+    {
+        @Html.HiddenFor(model => model.p_ID)
+        @Html.HiddenFor(model => model.p_studentID)
+        @Html.HiddenFor(model => model.p_semester)
+        @Html.HiddenFor(model => model.p_acadsession)
+        @Html.HiddenFor(model => model.p_title)
+        @Html.HiddenFor(model => model.p_domain)
+        @Html.HiddenFor(model => model.p_bgNsol)
+        @Html.HiddenFor(model => model.p_obj)
+        @Html.HiddenFor(model => model.p_scope)
+        @Html.HiddenFor(model => model.p_softreq)
+        @Html.HiddenFor(model => model.p_hardreq)
+        @Html.HiddenFor(model => model.p_techreq)
+        @Html.HiddenFor(model => model.p_netreq)
+        @Html.HiddenFor(model => model.p_secreq)
+        @Html.HiddenFor(model => model.p_area)
+        @Html.HiddenFor(model => model.p_idea)
+        @Html.HiddenFor(model => model.p_ev1comment)
+        @Html.HiddenFor(model => model.p_ev2comment)
+        @Html.HiddenFor(model => model.p_svcomment)
+        @Html.HiddenFor(model => model.p_status)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.p_ev1ID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("p_ev1ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.p_ev1ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.p_ev2ID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("p_ev2ID", null, htmlAttributes: new { @class = "form-control" } )
+                @Html.ValidationMessageFor(model => model.p_ev2ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+    }
+    @if (Session["UserType"].ToString() == "2")
+    {
+
+
         @Html.HiddenFor(model => model.p_ID)
         @Html.HiddenFor(model => model.p_studentID)
         @Html.HiddenFor(model => model.p_status)
@@ -21,7 +66,6 @@
         <div class="form-group">
             @Html.LabelFor(model => model.p_semester, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                
                 @Html.EditorFor(model => model.p_semester, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.p_semester, "", new { @class = "text-danger" })
             </div>
@@ -126,17 +170,155 @@
         <div class="form-group">
             @Html.LabelFor(model => model.p_idea, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.p_idea, new { htmlAttributes = new { @class = "form-control", placeholder="Example: Student, Supervisor"} })
+                @Html.EditorFor(model => model.p_idea, new { htmlAttributes = new { @class = "form-control", placeholder = "Example: Student, Supervisor" } })
                 @Html.ValidationMessageFor(model => model.p_idea, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-success" />
+    }
+    @if (Session["UserType"].ToString() == "3")
+    {
+        if (Session["UserID"].ToString() == Model.p_ev1ID)
+        {
+            @Html.HiddenFor(model => model.p_ID)
+            @Html.HiddenFor(model => model.p_studentID)
+            @Html.HiddenFor(model => model.p_semester)
+            @Html.HiddenFor(model => model.p_acadsession)
+            @Html.HiddenFor(model => model.p_title)
+            @Html.HiddenFor(model => model.p_domain)
+            @Html.HiddenFor(model => model.p_bgNsol)
+            @Html.HiddenFor(model => model.p_obj)
+            @Html.HiddenFor(model => model.p_scope)
+            @Html.HiddenFor(model => model.p_softreq)
+            @Html.HiddenFor(model => model.p_hardreq)
+            @Html.HiddenFor(model => model.p_techreq)
+            @Html.HiddenFor(model => model.p_netreq)
+            @Html.HiddenFor(model => model.p_secreq)
+            @Html.HiddenFor(model => model.p_area)
+            @Html.HiddenFor(model => model.p_idea)
+            @Html.HiddenFor(model => model.p_ev1ID)
+            @Html.HiddenFor(model => model.p_ev2ID)
+            @Html.HiddenFor(model => model.p_svcomment)
+            @Html.HiddenFor(model => model.p_ev2comment)
+
+            //ev1
+            <div class="form-group">
+                @Html.LabelFor(model => model.p_ev1comment, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.p_ev1comment, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.p_ev1comment, "", new { @class = "text-danger" })
+                </div>
             </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.p_status, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("p_status", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.p_status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>*@
+        }
+        else if (Session["UserID"].ToString() == Model.p_ev2ID)
+        {
+            @Html.HiddenFor(model => model.p_ID)
+            @Html.HiddenFor(model => model.p_studentID)
+            @Html.HiddenFor(model => model.p_semester)
+            @Html.HiddenFor(model => model.p_acadsession)
+            @Html.HiddenFor(model => model.p_title)
+            @Html.HiddenFor(model => model.p_domain)
+            @Html.HiddenFor(model => model.p_bgNsol)
+            @Html.HiddenFor(model => model.p_obj)
+            @Html.HiddenFor(model => model.p_scope)
+            @Html.HiddenFor(model => model.p_softreq)
+            @Html.HiddenFor(model => model.p_hardreq)
+            @Html.HiddenFor(model => model.p_techreq)
+            @Html.HiddenFor(model => model.p_netreq)
+            @Html.HiddenFor(model => model.p_secreq)
+            @Html.HiddenFor(model => model.p_area)
+            @Html.HiddenFor(model => model.p_idea)
+            @Html.HiddenFor(model => model.p_ev1ID)
+            @Html.HiddenFor(model => model.p_ev2ID)
+            @Html.HiddenFor(model => model.p_svcomment)
+            @Html.HiddenFor(model => model.p_ev1comment)
+            //ev2
+            <div class="form-group">
+                @Html.LabelFor(model => model.p_ev2comment, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.p_ev2comment, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.p_ev2comment, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.p_status, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("p_status", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.p_status, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>*@
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.p_ID)
+            @Html.HiddenFor(model => model.p_studentID)
+            @Html.HiddenFor(model => model.p_semester)
+            @Html.HiddenFor(model => model.p_acadsession)
+            @Html.HiddenFor(model => model.p_title)
+            @Html.HiddenFor(model => model.p_domain)
+            @Html.HiddenFor(model => model.p_bgNsol)
+            @Html.HiddenFor(model => model.p_obj)
+            @Html.HiddenFor(model => model.p_scope)
+            @Html.HiddenFor(model => model.p_softreq)
+            @Html.HiddenFor(model => model.p_hardreq)
+            @Html.HiddenFor(model => model.p_techreq)
+            @Html.HiddenFor(model => model.p_netreq)
+            @Html.HiddenFor(model => model.p_secreq)
+            @Html.HiddenFor(model => model.p_area)
+            @Html.HiddenFor(model => model.p_idea)
+            @Html.HiddenFor(model => model.p_ev1ID)
+            @Html.HiddenFor(model => model.p_ev2ID)
+            @Html.HiddenFor(model => model.p_ev1comment)
+            @Html.HiddenFor(model => model.p_ev2comment)
+            @Html.HiddenFor(model => model.p_status)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.p_svcomment, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.p_svcomment, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.p_svcomment, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>*@
+
+        }
+    }
+
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-success" />
         </div>
     </div>
+</div>
 }
 
 <div>

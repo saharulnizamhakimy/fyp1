@@ -17,7 +17,7 @@ namespace fyp1.Controllers
         // GET: profile
         public ActionResult Index()
         {
-            var tb_user = db.tb_user.Include(t => t.tb_committee).Include(t => t.tb_student).Include(t => t.tb_sv).Include(t => t.tb_usertype);
+            var tb_user = db.tb_user.Include(t => t.tb_student).Include(t => t.tb_sv).Include(t => t.tb_usertype);
             return View(tb_user.ToList());
         }
 
@@ -48,7 +48,6 @@ namespace fyp1.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.u_ID = new SelectList(db.tb_committee, "cmt_ID", "cmt_acadprogID", tb_user.u_ID);
             ViewBag.u_ID = new SelectList(db.tb_student, "s_id", "s_acadprogID", tb_user.u_ID);
             ViewBag.u_ID = new SelectList(db.tb_sv, "sv_ID", "sv_ID", tb_user.u_ID);
             ViewBag.u_type = new SelectList(db.tb_usertype, "ut_ID", "ut_desc", tb_user.u_type);
@@ -68,7 +67,6 @@ namespace fyp1.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Details", "profile", new {id=Session["UserID"]});
             }
-            ViewBag.u_ID = new SelectList(db.tb_committee, "cmt_ID", "cmt_acadprogID", tb_user.u_ID);
             ViewBag.u_ID = new SelectList(db.tb_student, "s_id", "s_acadprogID", tb_user.u_ID);
             ViewBag.u_ID = new SelectList(db.tb_sv, "sv_ID", "sv_ID", tb_user.u_ID);
             ViewBag.u_type = new SelectList(db.tb_usertype, "ut_ID", "ut_desc", tb_user.u_type);

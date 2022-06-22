@@ -1,0 +1,73 @@
+﻿@model fyp1.Models.tb_student
+@{
+    ViewBag.Title = "Agreement";
+    Layout = "";
+}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>FYP System</title>
+    <link rel="stylesheet" href="~/Content/Style2.css">
+    <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
+    <script src="~/Scripts/script.js"></script>
+    <!-- Custom fonts for this template-->
+    <link href="~/Theme/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="~/Theme/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="row justify-content-center pb-5">
+        <div class="well col-xs-10 col-sm-10 col-md-3 " >
+            <button onclick="window.print()" id="printPageButton"><i style="font-size:24px" class="fas fa-print"></i></button>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <img src="~/Theme/utm.png"class="img" alt="Responsive image">
+    </div>
+    <div class="row justify-content-center">
+        <h2>FYP1 AGREEMENT BETWEEN STUDENT & SUPERVISOR</h2>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="well col-xs-10">
+            <div style="text-align:center">
+                <address>
+                    <br />STUDENT DETAILS<br />
+                    Student ID: @Html.DisplayFor(model => model.s_id) <br>
+                    Student Name: @Html.DisplayFor(model => model.tb_user.u_name)<br>
+                    Student Email : @Html.DisplayFor(model => model.tb_user.u_email) <br>
+                    Student Contact No :@Html.DisplayFor(model => model.tb_user.u_contact) <br>
+                    <br><br>
+                </address>
+                <address>
+                    SUPERVISOR DETAILS<br />
+                    Supervisor ID: @Html.DisplayFor(model => model.s_svID) <br>
+                    Supervisor Name: @Html.DisplayFor(model => model.tb_sv.tb_user.u_name)<br>
+                    Supervisor Email : @Html.DisplayFor(model => model.tb_sv.tb_user.u_email) <br>
+                    Supervisor Contact No :@Html.DisplayFor(model => model.tb_sv.tb_user.u_contact) <br>
+                    <br><br>
+                </address>
+                <address>
+                    Regular review from supervisors will ensure that students execute their project according to the faculty’s procedure and standards,<br />
+                    as well as the project objectives and aims. Student must arrange a minimum of six (6) formal meetings with their supervisors before<br />
+                    receiving permission to submit and present their project. However, students are strongly advised to arrange a weekly meeting with the<br />
+                    supervisors to address issues related to project execution. All meetings must be recorded in a logbook and the supervisor’s <br />
+                    signature of approval of each meeting is required. The logbook form is available at the PSM website.
+                </address>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>

@@ -133,7 +133,6 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\profileController.cs" />
     <Compile Include="Controllers\tb_acadprogController.cs" />
-    <Compile Include="Controllers\tb_committeeController.cs" />
     <Compile Include="Controllers\tb_proposalController.cs" />
     <Compile Include="Controllers\tb_studentController.cs" />
     <Compile Include="Controllers\tb_svController.cs" />
@@ -163,13 +162,7 @@
     <Compile Include="Models\status.cs" />
     <Compile Include="Models\student.cs" />
     <Compile Include="Models\sv.cs" />
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>fyp1db.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\tb_acadprog.cs">
-      <DependentUpon>fyp1db.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tb_committee.cs">
       <DependentUpon>fyp1db.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tb_domain.cs">
@@ -185,6 +178,9 @@
       <DependentUpon>fyp1db.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tb_sv.cs">
+      <DependentUpon>fyp1db.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\tb_svstatus.cs">
       <DependentUpon>fyp1db.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tb_user.cs">
@@ -2145,6 +2141,9 @@
     <Content Include="Views\tb_proposal\Edit.cshtml" />
     <Content Include="Views\tb_proposal\Index.cshtml" />
     <Content Include="Views\tb_student\selectSV.cshtml" />
+    <Content Include="Views\tb_student\Agreement.cshtml" />
+    <Content Include="Views\tb_user\Index2.cshtml" />
+    <Content Include="Views\tb_user\addCmt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

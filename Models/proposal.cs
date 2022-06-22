@@ -46,11 +46,14 @@ namespace fyp1.Models
             public string p_ev2ID { get; set; }
 
             [DisplayName("Evaluator 1 Comment")]
+            [DataType(DataType.MultilineText)]
             public string p_ev1comment { get; set; }
 
             [DisplayName("Evaluator 2 Comment")]
+            [DataType(DataType.MultilineText)]
             public string p_ev2comment { get; set; }
 
+            [DataType(DataType.MultilineText)]
             [DisplayName("Supervisor Comment")]
             public string p_svcomment { get; set; }
 

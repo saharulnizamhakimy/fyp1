@@ -12,22 +12,18 @@ namespace fyp1.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class tb_student
+    public partial class tb_svstatus
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tb_student()
+        public tb_svstatus()
         {
-            this.tb_proposal = new HashSet<tb_proposal>();
+            this.tb_student = new HashSet<tb_student>();
         }
     
-        public string s_id { get; set; }
-        public string s_svID { get; set; }
-        public Nullable<int> s_svstatus { get; set; }
+        public int svst_id { get; set; }
+        public string svst_desc { get; set; }
     
-        public virtual tb_sv tb_sv { get; set; }
-        public virtual tb_user tb_user { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tb_proposal> tb_proposal { get; set; }
-        public virtual tb_svstatus tb_svstatus { get; set; }
+        public virtual ICollection<tb_student> tb_student { get; set; }
     }
 }

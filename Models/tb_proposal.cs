@@ -14,12 +14,6 @@ namespace fyp1.Models
     
     public partial class tb_proposal
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tb_proposal()
-        {
-            this.tb_student = new HashSet<tb_student>();
-        }
-    
         public int p_ID { get; set; }
         public string p_studentID { get; set; }
         public Nullable<int> p_semester { get; set; }
@@ -46,7 +40,6 @@ namespace fyp1.Models
         public virtual tb_domain tb_domain { get; set; }
         public virtual tb_status tb_status { get; set; }
         public virtual tb_user tb_user { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tb_student> tb_student { get; set; }
+        public virtual tb_student tb_student { get; set; }
     }
 }

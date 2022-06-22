@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<fyp1.Models.tb_user>
 
 @{
-    ViewBag.Title = "Lecturer List";
+    ViewBag.Title = "User Record";
 }
 
-<h2>Lecturer List</h2>
+<h2>User Record</h2>
 
 <p>
-    @Html.ActionLink("Add New Lecturer", "Create", null, new { @class = "btn btn-success" })
+    @Html.ActionLink("Add Committee Member", "addCmt", null, new { @class = "btn btn-success" })
 </p>
 <table class="table table-hover table-responsive-xl" id="prettify">
     <thead>

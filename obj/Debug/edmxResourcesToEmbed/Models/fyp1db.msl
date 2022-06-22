@@ -1,30 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="fyp1dbModelStoreContainer" CdmEntityContainer="fyp1dbEntities">
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="fyp1dbModel.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tb_acadprog">
       <EntityTypeMapping TypeName="fyp1dbModel.tb_acadprog">
         <MappingFragment StoreEntitySet="tb_acadprog">
           <ScalarProperty Name="ap_ID" ColumnName="ap_ID" />
           <ScalarProperty Name="ap_desc" ColumnName="ap_desc" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tb_committee">
-      <EntityTypeMapping TypeName="fyp1dbModel.tb_committee">
-        <MappingFragment StoreEntitySet="tb_committee">
-          <ScalarProperty Name="cmt_ID" ColumnName="cmt_ID" />
-          <ScalarProperty Name="cmt_acadprogID" ColumnName="cmt_acadprogID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -75,10 +56,9 @@
     <EntitySetMapping Name="tb_student">
       <EntityTypeMapping TypeName="fyp1dbModel.tb_student">
         <MappingFragment StoreEntitySet="tb_student">
+          <ScalarProperty Name="s_svstatus" ColumnName="s_svstatus" />
           <ScalarProperty Name="s_id" ColumnName="s_id" />
-          <ScalarProperty Name="s_acadprogID" ColumnName="s_acadprogID" />
           <ScalarProperty Name="s_svID" ColumnName="s_svID" />
-          <ScalarProperty Name="s_proposalD" ColumnName="s_proposalD" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -93,6 +73,7 @@
     <EntitySetMapping Name="tb_user">
       <EntityTypeMapping TypeName="fyp1dbModel.tb_user">
         <MappingFragment StoreEntitySet="tb_user">
+          <ScalarProperty Name="u_acadProgID" ColumnName="u_acadProgID" />
           <ScalarProperty Name="u_ID" ColumnName="u_ID" />
           <ScalarProperty Name="u_pwd" ColumnName="u_pwd" />
           <ScalarProperty Name="u_name" ColumnName="u_name" />
@@ -107,6 +88,14 @@
         <MappingFragment StoreEntitySet="tb_usertype">
           <ScalarProperty Name="ut_ID" ColumnName="ut_ID" />
           <ScalarProperty Name="ut_desc" ColumnName="ut_desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_svstatus">
+      <EntityTypeMapping TypeName="fyp1dbModel.tb_svstatus">
+        <MappingFragment StoreEntitySet="tb_svstatus">
+          <ScalarProperty Name="svst_desc" ColumnName="svst_desc" />
+          <ScalarProperty Name="svst_id" ColumnName="svst_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

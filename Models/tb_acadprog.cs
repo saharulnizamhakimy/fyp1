@@ -17,16 +17,13 @@ namespace fyp1.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tb_acadprog()
         {
-            this.tb_committee = new HashSet<tb_committee>();
-            this.tb_student = new HashSet<tb_student>();
+            this.tb_user = new HashSet<tb_user>();
         }
     
         public string ap_ID { get; set; }
         public string ap_desc { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tb_committee> tb_committee { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tb_student> tb_student { get; set; }
+        public virtual ICollection<tb_user> tb_user { get; set; }
     }
 }

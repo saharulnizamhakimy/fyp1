@@ -20,7 +20,7 @@
         @if (Session["UserType"] != null)
         {
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #81163F">
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="~/Home/Index">
                 <div class="sidebar-brand-icon rotate-n-15">
@@ -31,7 +31,7 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString()=="Home"?"active":"")">
                 <a class="nav-link" href="~/Home/Index">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Home</span>
@@ -45,28 +45,81 @@
             </div>
             <!-- Nav Item - Pages Collapse Menu -->
 
-            @if (Session["UserType"].ToString() == "1" || Session["UserType"].ToString() == "2" || Session["UserType"].ToString() == "3"
-            || Session["UserType"].ToString() == "4" || Session["UserType"].ToString() == "5")
+            @if (Session["UserType"].ToString() == "1")//admin
             {
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                       aria-expanded="true" aria-controls="collapseTwo">
+                <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString()=="tb_user"?"active":"")">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1"
+                       aria-expanded="true" aria-controls="collapse1">
                         <i class="fas fa-fw fa-users"></i>
-                        <span>Manage User</span>
+                        <span>Manage Lecturer</span>
                     </a>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div id="collapse1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">User Record</h6>
-                            <a class="collapse-item" href="~/tb_user/Index">User List</a>
-                            <a class="collapse-item" href="~/tb_user/Create">Create User</a>
+                            <a class="collapse-item" href="~/tb_user/Index">Lecturer List</a>
+                            <a class="collapse-item" href="~/tb_user/Create">Add New Lecturer</a>
+                        </div>
+                    </div>
+                </li>
+
+                @*<li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString()=="tb_sv"?"active":"")">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2"
+                       aria-expanded="true" aria-controls="collapse2">
+                        <i class="fas fa-fw fa-user-graduate"></i>
+                        <span>Manage Supervisor</span>
+                    </a>
+                    <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="~/tb_sv/Index">Supervisor List</a>
+                        </div>
+                    </div>
+                </li>*@
+
+                <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString()=="tb_acadprog"?"active":"")">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3"
+                       aria-expanded="true" aria-controls="collapse3">
+                        <i class="fas fa-fw fa-book"></i>
+                        <span>Manage Academic Program</span>
+                    </a>
+                    <div id="collapse3" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="~/tb_acadprog/Index">Academic Program List</a>
+                            <a class="collapse-item" href="~/tb_acadprog/Create">Create Academic Program</a>
                         </div>
                     </div>
                 </li>
             }
-            @if (Session["UserType"].ToString() == "1" || Session["UserType"].ToString() == "2" || Session["UserType"].ToString() == "3"
-                || Session["UserType"].ToString() == "4" || Session["UserType"].ToString() == "5")
+            @if (Session["UserType"].ToString() == "2")//student
             {
-                <li class="nav-item">
+                <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString()=="tb_student"?"active":"")">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse1"
+                       aria-expanded="true" aria-controls="collapse1">
+                        <i class="fas fa-fw fa-user-graduate"></i>
+                        <span>Supervisor Application</span>
+                    </a>
+                    <div id="collapse1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="~/tb_student/Index">Application Record</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString()=="tb_proposal"?"active":"")">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2"
+                       aria-expanded="true" aria-controls="collapse2">
+                        <i class="fas fa-fw fa-book"></i>
+                        <span>Manage Proposal</span>
+                    </a>
+                    <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="~/tb_proposal/Index">Proposal List</a>
+                            <a class="collapse-item" href="~/tb_proposal/Create">Create New Proposal</a>
+                        </div>
+                    </div>
+                </li>
+            }
+            @if (Session["UserType"].ToString() == "3")//sv
+            {
+                <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString()=="tb_student"?"active":"")">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
                        aria-expanded="true" aria-controls="collapseThree">
                         <i class="fas fa-fw fa-user-graduate"></i>
@@ -74,70 +127,12 @@
                     </a>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Student Record</h6>
                             <a class="collapse-item" href="~/tb_student/Index">Student List</a>
                         </div>
                     </div>
                 </li>
-            }
-            @if (Session["UserType"].ToString() == "1" || Session["UserType"].ToString() == "2" || Session["UserType"].ToString() == "3"
-                || Session["UserType"].ToString() == "4" || Session["UserType"].ToString() == "5")
-            {
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
-                       aria-expanded="true" aria-controls="collapseFour">
-                        <i class="fas fa-fw fa-user-edit"></i>
-                        <span>Manage Supervisor</span>
-                    </a>
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Supervisor Record</h6>
-                            <a class="collapse-item" href="~/tb_sv/Index">Supervisor List</a>
-                            <a class="collapse-item" href="~/tb_student/selectSV/@Session["UserID"]">Select Supervisor</a>
-                        </div>
-                    </div>
-                </li>
-            }
-            @if (Session["UserType"].ToString() == "1" || Session["UserType"].ToString() == "2" || Session["UserType"].ToString() == "3"
-                || Session["UserType"].ToString() == "4" || Session["UserType"].ToString() == "5")
-            {
 
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive"
-                       aria-expanded="true" aria-controls="collapseFive">
-                        <i class="fas fa-fw fa-user-friends"></i>
-                        <span>Manage Committee</span>
-                    </a>
-                    <div id="collapseFive" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Committee Record</h6>
-                            <a class="collapse-item" href="~/tb_committee/Index">Committee List</a>
-                        </div>
-                    </div>
-                </li>
-            }
-            @if (Session["UserType"].ToString() == "1" || Session["UserType"].ToString() == "2" || Session["UserType"].ToString() == "3"
-                || Session["UserType"].ToString() == "4" || Session["UserType"].ToString() == "5")
-            {
-                <li class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix"
-                       aria-expanded="true" aria-controls="collapseSix">
-                        <i class="fas fa-fw fa-book"></i>
-                        <span>Manage Academic Program</span>
-                    </a>
-                    <div id="collapseSix" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Academic Program Record</h6>
-                            <a class="collapse-item" href="~/tb_acadprog/Index">Academic Program List</a>
-                            <a class="collapse-item" href="~/tb_acadprog/Create">Create Academic Program</a>
-                        </div>
-                    </div>
-                </li>
-            }
-            @if (Session["UserType"].ToString() == "1" || Session["UserType"].ToString() == "2" || Session["UserType"].ToString() == "3"
-                || Session["UserType"].ToString() == "4" || Session["UserType"].ToString() == "5")
-            {
-                <li class="nav-item">
+                <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString()=="tb_proposal"?"active":"")">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSeven"
                        aria-expanded="true" aria-controls="collapseSeven">
                         <i class="fas fa-fw fa-book"></i>
@@ -145,9 +140,48 @@
                     </a>
                     <div id="collapseSeven" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <h6 class="collapse-header">Proposal Record</h6>
                             <a class="collapse-item" href="~/tb_proposal/Index">Proposal List</a>
-                            <a class="collapse-item" href="~/tb_proposal/Create">Create New Proposal</a>
+                        </div>
+                    </div>
+                </li>
+            }
+            @if (Session["UserType"].ToString() == "5")//cmt
+            {
+                <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString()=="tb_sv"?"active":"")">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2"
+                       aria-expanded="true" aria-controls="collapse2">
+                        <i class="fas fa-fw fa-user-graduate"></i>
+                        <span>Manage Supervisor</span>
+                    </a>
+                    <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="~/tb_sv/Index">Supervisor List</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString()=="tb_student"?"active":"")">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
+                       aria-expanded="true" aria-controls="collapseThree">
+                        <i class="fas fa-fw fa-user-graduate"></i>
+                        <span>Manage Student</span>
+                    </a>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="~/tb_student/Index">Student List</a>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString()=="tb_proposal"?"active":"")">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSeven"
+                       aria-expanded="true" aria-controls="collapseSeven">
+                        <i class="fas fa-fw fa-book"></i>
+                        <span>Manage Proposal</span>
+                    </a>
+                    <div id="collapseSeven" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="collapse-item" href="~/tb_proposal/Index">Proposal List</a>
                         </div>
                     </div>
                 </li>
@@ -252,7 +286,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="@Url.Action("Logout", "Login")">Logout</a>
+                    <a class="btn btn-danger" href="@Url.Action("Logout", "Login")">Logout</a>
                 </div>
             </div>
         </div>

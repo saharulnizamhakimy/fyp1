@@ -35,6 +35,10 @@ namespace fyp1.Controllers
                     Session["UserID"] = obj.u_ID.ToString();
                     Session["Username"] = obj.u_name.ToString();
                     Session["UserType"] = obj.u_type.ToString();
+                    if (Session["UserType"].ToString()!="1")
+                    {
+                        Session["AcadProg"] = obj.u_acadProgID.ToString();
+                    }
                     if (ReturnUrl != null)
                     {
                         return Redirect(ReturnUrl);

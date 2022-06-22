@@ -16,14 +16,11 @@ namespace fyp1.Models
             [DisplayName("Student ID")]
             public string s_id { get; set; }
 
-            [DisplayName("Program")]
-            public string s_acadprogID { get; set; }
-
             [DisplayName("Supervisor")]
             public string s_svID { get; set; }
 
-            [DisplayName("Proposal ID")]
-            public Nullable<int> s_proposalD { get; set; }
+            [DisplayName("Supervisor Status")]
+            public Nullable<int> s_svstatus { get; set; }
         }
 
 

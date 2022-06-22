@@ -40,6 +40,17 @@ namespace fyp1.Controllers
         public ActionResult Create()
         {
             ViewBag.sv_domainID = new SelectList(db.tb_domain, "d_ID", "d_desc");
+
+            //var clients = db.tb_user.Include(t=>t.tb_sv).Where(t => t.u_type != 3 && t.u_type != 1 && t.u_type != 2)
+            //    .Select(s => new
+            //    {
+            //        Text = s.tb_sv.sv_ID + " - " + s.tb_sv.tb_user.u_name,
+            //        Value = s.tb_sv.sv_ID
+            //    })
+            //    .ToList();
+
+            //ViewBag.sv_ID = new SelectList(clients, "Value", "Text");
+
             ViewBag.sv_ID = new SelectList(db.tb_user, "u_ID", "u_name");
             return View();
         }

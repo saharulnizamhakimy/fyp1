@@ -3,58 +3,73 @@
 @{
     ViewBag.Title = "Student Record";
 }
-
-<h2>Student Record</h2>
-
-<p>
-    @Html.ActionLink("Create New Student", "Create")
-</p>
+@if (Session["UserType"].ToString() == "2")
+{
+    <h2>Student's Supervisor Application </h2>
+}
+else
+{
+    <h2>Student Record</h2>
+}
 <table class="table" id="prettify">
     <thead>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.s_id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tb_user.u_name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tb_user.u_email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.s_acadprogID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.s_svID)
-        </th>
-        <th></th>
-    </tr>
-        </thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.s_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tb_user.u_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tb_user.u_email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.s_svID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.s_svstatus)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
     <tbody>
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.s_id)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tb_user.u_name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.tb_user.u_email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.s_acadprogID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.s_svID)
-            @Html.DisplayFor(modelItem => item.tb_user.u_name)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.s_id }, new { @class = "btn btn-warning" }) |
-            @Html.ActionLink("Details", "Details", new { id=item.s_id }, new { @class = "btn btn-info" }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.s_id }, new { @class = "btn btn-danger" })
-        </td>
-    </tr>
-}
-        </tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.s_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tb_user.u_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tb_user.u_email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.s_svID) -
+                    @Html.DisplayFor(modelItem => item.tb_sv.tb_user.u_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tb_svstatus.svst_desc)
+                </td>
+                <td>
+                    @if (Session["UserType"].ToString() == "5")
+                    {
+                        @Html.ActionLink("Status", "Edit", new { id = item.s_id }, new { @class = "btn btn-warning" })
+                        @*@Html.ActionLink("Delete", "Delete", new { id = item.s_id }, new { @class = "btn btn-danger" })*@
+                    }
+                    @Html.ActionLink("Details", "Details", new { id = item.s_id }, new { @class = "btn btn-info" })
+                    @if (Session["UserType"].ToString() == "2")
+                    {
+                        @Html.ActionLink("Select Supervisor", "selectSV", "tb_student", new { id = item.s_id }, new { @class = "btn btn-primary" })
+                    }
+
+                    @if (item.s_svstatus.ToString() == "2" && (Session["UserType"].ToString() == "2" || Session["UserType"].ToString() == "3"))
+                    {
+                        @Html.ActionLink("View Agreement", "Agreement", "tb_student", new { id = item.s_id }, new { @class = "btn btn-warning", @target = "_blank" })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

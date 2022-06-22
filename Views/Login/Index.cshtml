@@ -15,11 +15,16 @@
         text-align: center;
     }
 </style>
-<body style="background-color: #B6A588;">
+<body style="background-color: #81163F;">
 
     @using (Html.BeginForm())
     {
-        <div style="background-color: #B6A588;">
+        @*<div class=" col-md">*@
+            <img src="~/Theme/utm.png" alt="Logo" style="width:500px;height:80px" @*align="bottom"*@>
+        @*</div>*@
+        <div style="background-color: #81163F;">
+
+
             @Html.AntiForgeryToken()
             <br />
             <h3>FYP1 System</h3>
@@ -28,7 +33,13 @@
                 <br />
                 <div class="row">
                     <br />
-                    <div class="col-md-11">
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-9">
                         <br />
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="form-group">
@@ -59,27 +70,28 @@
 
 
                     <!--Logo-->
-                    <div class=" col-md-1">
-                        <img src="~/Theme/logo.png" alt="Logo" style="width:400px;height:250px;" align="right">
+                    @*<div class=" col-md-1 form-group">
 
-                    </div>
+            <img src="~/Theme/utm.png" alt="Logo" style="width:400px;height:80px" align="right">
+
+        </div>*@
 
                 </div>
 
-                <script>
+                    <script>
 
-                    function myFunction1() {
-                        var x = document.getElementById("pwd1");
-                        if (x.type === "password") {
-                            x.type = "text";
-                        } else {
-                            x.type = "password";
+                        function myFunction1() {
+                            var x = document.getElementById("pwd1");
+                            if (x.type === "password") {
+                                x.type = "text";
+                            } else {
+                                x.type = "password";
+                            }
                         }
-                    }
-                </script>
-                @Html.ActionLink("Register Student Account Here!", "CreateStudent", "tb_user", null, new { @class = "btn btn-secondary" })
+                    </script>
+                    @Html.ActionLink("Register Student Account Here!", "CreateStudent", "tb_user", null, new { @class = "btn btn-secondary" })
 
-            </div>
+                </div>
         </div>
     }
 

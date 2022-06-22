@@ -26,12 +26,13 @@ namespace fyp1.Models
         public string u_contact { get; set; }
         public string u_email { get; set; }
         public int u_type { get; set; }
+        public string u_acadProgID { get; set; }
     
-        public virtual tb_committee tb_committee { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tb_proposal> tb_proposal { get; set; }
         public virtual tb_student tb_student { get; set; }
         public virtual tb_sv tb_sv { get; set; }
         public virtual tb_usertype tb_usertype { get; set; }
+        public virtual tb_acadprog tb_acadprog { get; set; }
     }
 }

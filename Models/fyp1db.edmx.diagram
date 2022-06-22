@@ -5,9 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="7a6915beb8a548528045c1da915c0aa6" Name="Diagram1">
-        <EntityTypeShape EntityType="fyp1dbModel.sysdiagram" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
         <EntityTypeShape EntityType="fyp1dbModel.tb_acadprog" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="fyp1dbModel.tb_committee" Width="1.5" PointX="5.25" PointY="5.625" IsExpanded="true" />
         <EntityTypeShape EntityType="fyp1dbModel.tb_domain" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="fyp1dbModel.tb_proposal" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="fyp1dbModel.tb_status" Width="1.5" PointX="6" PointY="8.75" IsExpanded="true" />
@@ -15,19 +13,19 @@
         <EntityTypeShape EntityType="fyp1dbModel.tb_sv" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="fyp1dbModel.tb_user" Width="1.5" PointX="3" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="fyp1dbModel.tb_usertype" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <AssociationConnector Association="fyp1dbModel.FK_tb_committee_tb_acadprog" ManuallyRouted="false" />
-        <AssociationConnector Association="fyp1dbModel.FK_tb_student_tb_acadprog" ManuallyRouted="false" />
-        <AssociationConnector Association="fyp1dbModel.FK_tb_committee_tb_user" ManuallyRouted="false" />
         <AssociationConnector Association="fyp1dbModel.FK_tb_proposal_tb_domain" ManuallyRouted="false" />
         <AssociationConnector Association="fyp1dbModel.FK_tb_sv_tb_domain" ManuallyRouted="false" />
         <AssociationConnector Association="fyp1dbModel.FK_tb_proposal_tb_status" ManuallyRouted="false" />
         <AssociationConnector Association="fyp1dbModel.FK_tb_proposal_tb_user" ManuallyRouted="false" />
         <AssociationConnector Association="fyp1dbModel.FK_tb_proposal_tb_user1" ManuallyRouted="false" />
-        <AssociationConnector Association="fyp1dbModel.FK_tb_student_tb_proposal" ManuallyRouted="false" />
         <AssociationConnector Association="fyp1dbModel.FK_tb_student_tb_sv" ManuallyRouted="false" />
         <AssociationConnector Association="fyp1dbModel.FK_tb_student_tb_user" ManuallyRouted="false" />
         <AssociationConnector Association="fyp1dbModel.FK_tb_sv_tb_user" ManuallyRouted="false" />
         <AssociationConnector Association="fyp1dbModel.FK_tb_user_tb_usertype" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="fyp1dbModel.tb_svstatus" Width="1.5" PointX="10.375" PointY="0.875" />
+        <AssociationConnector Association="fyp1dbModel.FK_tb_user_tb_acadprog" />
+        <AssociationConnector Association="fyp1dbModel.FK_tb_proposal_tb_student" />
+        <AssociationConnector Association="fyp1dbModel.FK_tb_student_tb_svstatus" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

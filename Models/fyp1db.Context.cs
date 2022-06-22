@@ -25,9 +25,7 @@ namespace fyp1.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tb_acadprog> tb_acadprog { get; set; }
-        public virtual DbSet<tb_committee> tb_committee { get; set; }
         public virtual DbSet<tb_domain> tb_domain { get; set; }
         public virtual DbSet<tb_proposal> tb_proposal { get; set; }
         public virtual DbSet<tb_status> tb_status { get; set; }
@@ -35,5 +33,6 @@ namespace fyp1.Models
         public virtual DbSet<tb_sv> tb_sv { get; set; }
         public virtual DbSet<tb_user> tb_user { get; set; }
         public virtual DbSet<tb_usertype> tb_usertype { get; set; }
+        public virtual DbSet<tb_svstatus> tb_svstatus { get; set; }
     }
 }

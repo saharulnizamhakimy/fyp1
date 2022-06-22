@@ -34,6 +34,11 @@ namespace fyp1.Models
 
             [DisplayName("User Type")]
             public int u_type { get; set; }
+
+            [Required]
+            [DisplayName("Academic Program")]
+            public string u_acadProgID { get; set; }
+
         }
 
 
