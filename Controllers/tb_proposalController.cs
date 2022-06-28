@@ -32,20 +32,19 @@ namespace fyp1.Controllers
             else
             {
                 var tb_proposal = db.tb_proposal.FirstOrDefault();
-                var ID = Session["AcadProg"].ToString();
                 var ID2 = Session["UserID"].ToString();
-                if (tb_proposal.p_ev1ID.ToString() == ID2 || tb_proposal.p_ev2ID.ToString() == ID2)
-                {
-                    var tb_proposal1 = db.tb_proposal.Include(t => t.tb_domain).Include(t => t.tb_status).Include(t => t.tb_student).Include(t => t.tb_user).Where(s => s.tb_student.s_svID.ToString() != ID2).Where(s => s.p_ev1ID.ToString() == ID2 || s.p_ev2ID.ToString() == ID2);
-                    return View(tb_proposal1.ToList());
-                }
-                else
-                {
-                    var tb_proposal1 = db.tb_proposal.Include(t => t.tb_domain).Include(t => t.tb_status).Include(t => t.tb_student).Include(t => t.tb_user)/*.Where(x => x.tb_student.tb_user.u_acadProgID.ToString() == ID)*/.Where(s => s.tb_student.s_svID.ToString() == ID2);
-                    return View(tb_proposal1.ToList());
-                }
+                var tb_proposal1 = db.tb_proposal.Include(t => t.tb_domain).Include(t => t.tb_status).Include(t => t.tb_student).Include(t => t.tb_user).Where(s => s.tb_student.s_svID.ToString() == ID2);
+                return View(tb_proposal1.ToList());
             }
 
+        }
+
+        public ActionResult Index2()
+        {
+            var tb_proposal = db.tb_proposal.FirstOrDefault();
+            var ID2 = Session["UserID"].ToString();
+            var tb_proposal1 = db.tb_proposal.Include(t => t.tb_domain).Include(t => t.tb_status).Include(t => t.tb_student).Include(t => t.tb_user).Where(s=>s.p_ev1ID.ToString() == ID2 || s.p_ev2ID.ToString() == ID2);
+            return View(tb_proposal1.ToList());
         }
 
 
@@ -110,8 +109,9 @@ namespace fyp1.Controllers
 
             ViewBag.p_domain = new SelectList(db.tb_domain, "d_ID", "d_desc", tb_proposal.p_domain);
             ViewBag.p_status = new SelectList(db.tb_status, "st_ID", "st_desc", tb_proposal.p_status);
+            var ID = Session["AcadProg"].ToString();
 
-            var ev1 = db.tb_user.Where(r => r.u_type == 3).Where(s => s.u_ID != tb_proposal.tb_student.s_svID).Where(s => s.tb_sv.sv_domainID == tb_proposal.p_domain)
+            var ev1 = db.tb_user.Where(r => r.u_type == 3).Where(s => s.u_ID != tb_proposal.tb_student.s_svID).Where(s => s.tb_sv.sv_domainID == tb_proposal.p_domain).Where(t => t.tb_sv.tb_user.u_acadProgID == ID)
                .Select(s => new
                {
                    Text = s.u_ID + " - " + s.u_name,
@@ -120,7 +120,7 @@ namespace fyp1.Controllers
                .ToList();
             ViewBag.p_ev1ID = new SelectList(ev1, "Value", "Text", tb_proposal.p_ev1ID);
 
-            var ev2 = db.tb_user.Where(r => r.u_type == 3).Where(s => s.u_ID != tb_proposal.tb_student.s_svID).Where(s => s.tb_sv.sv_domainID == tb_proposal.p_domain)
+            var ev2 = db.tb_user.Where(r => r.u_type == 3).Where(s => s.u_ID != tb_proposal.tb_student.s_svID).Where(s => s.tb_sv.sv_domainID == tb_proposal.p_domain).Where(t => t.tb_sv.tb_user.u_acadProgID == ID)
                .Select(s => new
                {
                    Text1 = s.u_ID + " - " + s.u_name,
@@ -146,6 +146,10 @@ namespace fyp1.Controllers
                 }
                 db.Entry(tb_proposal).State = EntityState.Modified;
                 db.SaveChanges();
+                if (Session["UserID"].ToString() == tb_proposal.p_ev1ID || Session["UserID"].ToString() == tb_proposal.p_ev2ID)
+                { 
+                    return RedirectToAction("Index2"); 
+                }
                 return RedirectToAction("Index");
             }
             ViewBag.p_domain = new SelectList(db.tb_domain, "d_ID", "d_desc", tb_proposal.p_domain);

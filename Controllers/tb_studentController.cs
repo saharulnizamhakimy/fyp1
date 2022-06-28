@@ -33,7 +33,8 @@ namespace fyp1.Controllers
             //for student view
             else
             {
-                var tb_student = db.tb_student.Include(t => t.tb_sv).Include(t => t.tb_svstatus).Include(t => t.tb_user);
+                var ID = Session["AcadProg"].ToString();
+                var tb_student = db.tb_student.Include(t => t.tb_sv).Include(t => t.tb_svstatus).Include(t => t.tb_user).Where(t => t.tb_user.u_acadProgID == ID);
                 return View(tb_student.ToList());
             }
 
@@ -181,7 +182,7 @@ namespace fyp1.Controllers
             }
             ViewBag.s_id = new SelectList(db.tb_user, "u_ID", "u_name", tb_student.s_id);
 
-            var clients = db.tb_sv
+            var clients = db.tb_sv.Where(t=>t.tb_user.u_acadProgID==tb_student.tb_user.u_acadProgID)
                 .Select(s => new
                 {
                     Text = s.sv_ID + " - " + s.tb_user.u_name,

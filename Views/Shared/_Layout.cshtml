@@ -61,19 +61,6 @@
                     </div>
                 </li>
 
-                @*<li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString()=="tb_sv"?"active":"")">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse2"
-                       aria-expanded="true" aria-controls="collapse2">
-                        <i class="fas fa-fw fa-user-graduate"></i>
-                        <span>Manage Supervisor</span>
-                    </a>
-                    <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="~/tb_sv/Index">Supervisor List</a>
-                        </div>
-                    </div>
-                </li>*@
-
                 <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString()=="tb_acadprog"?"active":"")">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse3"
                        aria-expanded="true" aria-controls="collapse3">
@@ -140,7 +127,8 @@
                     </a>
                     <div id="collapseSeven" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="~/tb_proposal/Index">Proposal List</a>
+                            <a class="collapse-item" href="~/tb_proposal/Index">Proposal Supervision List</a>
+                            <a class="collapse-item" href="~/tb_proposal/Index2">Proposal Evaluation List</a>
                         </div>
                     </div>
                 </li>

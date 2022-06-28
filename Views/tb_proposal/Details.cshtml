@@ -177,5 +177,12 @@
     {
         @Html.ActionLink("Edit", "Edit", new { id = Model.p_ID })
     }
-    @Html.ActionLink("Back to List", "Index")
+    @if (Session["UserID"].ToString() == Model.p_ev1ID || Session["UserID"].ToString() == Model.p_ev2ID)
+    {
+        @Html.ActionLink("Back to List", "Index2")
+    }
+    else
+    {
+        @Html.ActionLink("Back to List", "Index")
+    }
 </p>

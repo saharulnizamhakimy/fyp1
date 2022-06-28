@@ -2144,6 +2144,7 @@
     <Content Include="Views\tb_student\Agreement.cshtml" />
     <Content Include="Views\tb_user\Index2.cshtml" />
     <Content Include="Views\tb_user\addCmt.cshtml" />
+    <Content Include="Views\tb_proposal\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

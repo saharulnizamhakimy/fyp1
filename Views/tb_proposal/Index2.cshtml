@@ -1,14 +1,15 @@
 ﻿@model IEnumerable<fyp1.Models.tb_proposal>
 
 @{
-    ViewBag.Title = "List of Supervision Proposal";
+    ViewBag.Title = "List of Evaluation Proposal";
 }
 
-<h2>List of Supervision Proposal</h2>
-@if(Session["UserType"].ToString() == "2"){ 
-<p>
-    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
-</p>}
+<h2>List of Evaluation Proposal</h2>
+@if (Session["UserType"].ToString() == "2")
+{
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+    </p>}
 <table class="table table-responsive" id="prettify">
     <thead>
         <tr>
@@ -95,7 +96,7 @@
                     {
                         if (item.p_status != 2)
                         {
-                            if (item.p_ev1ID != Session["UserID"].ToString() && item.p_ev2ID != Session["UserID"].ToString() && item.p_status==1)
+                            if (item.p_ev1ID != Session["UserID"].ToString() && item.p_ev2ID != Session["UserID"].ToString() && item.p_status == 1)
                             {
                                 @Html.ActionLink("Review", "Edit", new { id = item.p_ID }, new { @class = "btn btn-warning" })
                             }
@@ -109,9 +110,9 @@
                     @if (Session["UserType"].ToString() == "5")
                     {
                         @*if (item.p_ev1ID == null && item.p_ev2ID == null)
-                        {
-                            @Html.ActionLink("Assign Evaluator", "Edit", new { id = item.p_ID }, new { @class = "btn btn-warning" })
-                        }*@
+                            {
+                                @Html.ActionLink("Assign Evaluator", "Edit", new { id = item.p_ID }, new { @class = "btn btn-warning" })
+                            }*@
                         @Html.ActionLink("Assign Evaluator", "Edit", new { id = item.p_ID }, new { @class = "btn btn-warning" })
                     }
 

@@ -17,8 +17,12 @@ namespace fyp1.Controllers
         // GET: tb_sv
         public ActionResult Index()
         {
-            var tb_sv = db.tb_sv.Include(t => t.tb_domain).Include(t => t.tb_user);
+            var ID = Session["AcadProg"].ToString();
+            var tb_sv = db.tb_sv.Include(t => t.tb_domain).Include(t=>t.tb_user).Where(t=>t.tb_user.u_acadProgID.ToString()==ID);
             return View(tb_sv.ToList());
+
+            //var tb_sv = db.tb_sv.Include(t => t.tb_domain).Include(t => t.tb_user);
+            //return View(tb_sv.ToList());
         }
 
         // GET: tb_sv/Details/5
